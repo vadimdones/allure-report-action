@@ -44,7 +44,7 @@ echo '${GITHUB_PAGES_WEBSITE_URL}'
 echo '222222'
 PREFIX="public/"
 echo ${PREFIX}
-WEBSITE_URL=${GITHUB_PAGES_WEBSITE_URL#"$prefix"}
+WEBSITE_URL=${GITHUB_PAGES_WEBSITE_URL#"$prefix"} | sed 's/public//'
 echo ${WEBSITE_URL}
 
 #echo "index.html"
