@@ -39,8 +39,16 @@ if (( COUNT > INPUT_KEEP_REPORTS )); then
   cd ${GITHUB_WORKSPACE}
 fi
 
+echo '1111111'
+echo '${GITHUB_PAGES_WEBSITE_URL}'
+echo '222222'
+prefix="public/"
+echo '${prefix}'
+WEBSITE_URL=${GITHUB_PAGES_WEBSITE_URL#"$prefix"}
+echo '${WEBSITE_URL}'
+
 #echo "index.html"
-echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${GITHUB_PAGES_WEBSITE_URL}/${INPUT_GITHUB_RUN_NUM/public/}/\">" > ./${INPUT_ALLURE_HISTORY}/index.html # path
+echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${WEBSITE_URL}/${INPUT_GITHUB_RUN_NUM/public/}/\">" > ./${INPUT_ALLURE_HISTORY}/index.html # path
 echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./${INPUT_ALLURE_HISTORY}/index.html
 #cat ./${INPUT_ALLURE_HISTORY}/index.html
 
