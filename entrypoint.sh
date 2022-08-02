@@ -16,7 +16,7 @@ if [[ ${INPUT_SUBFOLDER} != '' ]]; then
     INPUT_GH_PAGES="${INPUT_GH_PAGES}/${INPUT_SUBFOLDER}"
     echo "NEW allure history folder ${INPUT_ALLURE_HISTORY}"
     mkdir -p ./${INPUT_ALLURE_HISTORY}
-    GITHUB_PAGES_WEBSITE_URL="${GITHUB_PAGES_WEBSITE_URL}/escooterapp-e2e"
+    GITHUB_PAGES_WEBSITE_URL="${GITHUB_PAGES_WEBSITE_URL}/${INPUT_SUBFOLDER}"
     echo "NEW github pages url ${GITHUB_PAGES_WEBSITE_URL}"
 fi
 
@@ -40,7 +40,7 @@ if (( COUNT > INPUT_KEEP_REPORTS )); then
 fi
 
 #echo "index.html"
-echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${WEBSITE_URL}/${INPUT_GITHUB_RUN_NUM/public/}/\">" > ./${INPUT_ALLURE_HISTORY}/index.html # path
+echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${GITHUB_PAGES_WEBSITE_URL/public/}/${INPUT_GITHUB_RUN_NUM}/\">" > ./${INPUT_ALLURE_HISTORY}/index.html # path
 echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./${INPUT_ALLURE_HISTORY}/index.html
 #cat ./${INPUT_ALLURE_HISTORY}/index.html
 
