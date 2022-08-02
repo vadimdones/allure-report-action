@@ -42,10 +42,10 @@ fi
 echo '1111111'
 echo '${GITHUB_PAGES_WEBSITE_URL}'
 echo '222222'
-prefix="public/"
-echo '${prefix}'
+PREFIX="public/"
+echo ${PREFIX}
 WEBSITE_URL=${GITHUB_PAGES_WEBSITE_URL#"$prefix"}
-echo '${WEBSITE_URL}'
+echo ${WEBSITE_URL}
 
 #echo "index.html"
 echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${WEBSITE_URL}/${INPUT_GITHUB_RUN_NUM/public/}/\">" > ./${INPUT_ALLURE_HISTORY}/index.html # path
