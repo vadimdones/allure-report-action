@@ -16,7 +16,7 @@ if [[ ${INPUT_SUBFOLDER} != '' ]]; then
     INPUT_GH_PAGES="${INPUT_GH_PAGES}/${INPUT_SUBFOLDER}"
     echo "NEW allure history folder ${INPUT_ALLURE_HISTORY}"
     mkdir -p ./${INPUT_ALLURE_HISTORY}
-    GITHUB_PAGES_WEBSITE_URL="${GITHUB_PAGES_WEBSITE_URL}/${INPUT_SUBFOLDER}"
+    GITHUB_PAGES_WEBSITE_URL="${GITHUB_PAGES_WEBSITE_URL}/escooterapp-e2e"
     echo "NEW github pages url ${GITHUB_PAGES_WEBSITE_URL}"
 fi
 
@@ -38,14 +38,6 @@ if (( COUNT > INPUT_KEEP_REPORTS )); then
   ls | sort -n | head -n -$((${INPUT_KEEP_REPORTS}-2)) | xargs rm -rv;
   cd ${GITHUB_WORKSPACE}
 fi
-
-echo '1111111'
-echo '${GITHUB_PAGES_WEBSITE_URL}'
-echo '222222'
-PREFIX="public/"
-echo ${PREFIX}
-WEBSITE_URL=${GITHUB_PAGES_WEBSITE_URL#"$prefix"} | sed 's/public//'
-echo ${WEBSITE_URL}
 
 #echo "index.html"
 echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${WEBSITE_URL}/${INPUT_GITHUB_RUN_NUM/public/}/\">" > ./${INPUT_ALLURE_HISTORY}/index.html # path
